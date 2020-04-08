@@ -1,0 +1,95 @@
+
+<div class="container">
+    <br>
+    <h1>Coleccion de Pipes</h1>
+    <hr>
+
+    <table class="table">
+        <thead class="thead-dark">
+          <tr>
+            <th scope="col">#</th>
+            <th scope="col">Nombre del Pipe</th>
+            <th scope="col">Data original</th>
+            <th scope="col">Data Modificada</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <th scope="row">1</th>
+            <td>Upper</td>
+            <td>alfredo</td>
+            <td>{{ 'alfredo' | uppercase }}</td>
+          </tr>
+          <tr>
+            <th scope="row">2</th>
+            <td>Lower</td>
+            <td>ALFREDO</td>
+            <td>{{ 'ALFREDO' | lowercase }}</td>
+          </tr>
+          <tr>
+            <th scope="row">3</th>
+            <td>Slice en Cadenas</td>
+            <td>Alfredo Gonzalez Gaviña</td>
+            <td>{{'Alfredo Gonzalez Gaviña' | slice: 5}}</td>
+          </tr>
+
+          <tr>
+            <th scope="row">3</th>
+            <td>Slice en Cadena segmento</td>
+            <td>Alfredo Gonzalez Gaviña</td>
+            <td>{{'Alfredo Gonzalez Gaviña' | slice:5:10}}</td>
+          </tr>
+
+          <tr>
+            <th scope="row">4</th>
+            <td>Slice en objetos</td>
+            <td>{{arreglo}}</td>
+            <td>{{arreglo | slice: 3:9}}</td>
+          </tr>
+
+          <tr>
+            <th scope="row">5</th>
+            <td>Number (3 enteros, 2-5 decimales)</td>
+            <td>{{PI}}</td>
+            <td>{{PI | number: '3.2-5'}}</td>
+          </tr>
+
+          <tr>
+            <th scope="row">5</th>
+            <td>Number (1 entero, 4 decimales)</td>
+            <td>{{PI}}</td>
+            <td>{{PI | number: '1.4-4'}}</td>
+          </tr>
+
+          <tr>
+            <th scope="row">5</th>
+            <td>Porcentaje (1 entero, 2 decimales)</td>
+            <td>{{PI/100}}</td>
+            <td>{{(PI/100) | percent: '1.2-2'}}</td>
+          </tr>
+
+          <tr>
+            <th scope="row">5</th>
+            <td>Currency Moneda(automatico)</td>
+            <td>{{salario}}</td>
+            <td>{{salario | currency}}</td>
+          </tr>
+
+          <tr>
+            <th scope="row">5</th>
+            <td>Currency Moneda(código)</td>
+            <td>{{salario}}</td>
+            <td>{{salario | currency: 'MXN' : 'code'}}</td>
+          </tr>
+
+          <tr>
+            <th scope="row">5</th>
+            <td>Fecha</td>
+            <td>{{fecha}}</td>
+            <td>{{fecha | date: 'EEEE, MMMM d, y, h:mm:' }}</td>
+          </tr>
+        </tbody>
+      
+    </table>
+
+</div>
