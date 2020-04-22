@@ -1,0 +1,49 @@
+
+
+<div class='row'>
+
+    <div class="col">
+
+        <h1>*ngIf</h1>
+
+        <div  class="card text-white bg-primary " >
+
+            <div class="card-body" >
+              <h5 class="card-title">{{personajeO.nombre || 'No seleccionado'}}  {{personajeO.puesto }}</h5>
+              <ul class="list-group" *ngIf='visible'>
+                <li  class="list-group-item list-group-item-action"  *ngFor='let frase of personajeO.frases'>
+                   {{frase}}
+                </li>
+                
+            </ul>
+          
+            </div>
+          </div>
+
+          <button 
+          (click)='visible = !visible'
+          type="button" class="btn btn-outline-primary btn-block">Frases</button>
+
+         
+
+    </div>
+
+ 
+
+    <div class="col">
+
+        <h1>*ngFor</h1>
+
+        <ul class="list-group">
+            <li (click)='personajeO = personaje' 
+            class="list-group-item list-group-item-action " *ngFor='let personaje of personajes'>
+                {{personaje.nombre}}
+            </li>
+    
+        </ul>
+     
+
+    </div>
+
+</div>
+
