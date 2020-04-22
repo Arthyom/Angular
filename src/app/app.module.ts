@@ -7,15 +7,22 @@ import { HomeComponent } from './componentes/home/home.component';
 import { ApoRoutingModule } from './app-routing.module';
 import { CommonModule, registerLocaleData } from '@angular/common';
 import localeEsAR from '@angular/common/locales/es-AR';
+import { DomSeguro } from './componentes/domseguro.pipe';
+import { ClickPipe } from './componentes/click.pipo';
+import { FormsModule } from '@angular/forms';
+
 registerLocaleData(localeEsAR, 'es-Ar');
 
 @NgModule({
   declarations: [
+    ClickPipe,
+    DomSeguro,
     AppComponent,
     UpperLowerCaseComponent,
     HomeComponent
   ],
   imports: [
+    FormsModule,
     CommonModule,
     ApoRoutingModule,
     BrowserModule

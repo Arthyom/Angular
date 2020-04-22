@@ -88,6 +88,43 @@
             <td>{{fecha}}</td>
             <td>{{fecha | date: 'EEEE, MMMM d, y, h:mm:' }}</td>
           </tr>
+
+          <tr>
+            <th scope="row">5</th>
+            <td>Promesa</td>
+            <td> {{promesa}} promesa plana</td>
+            <td> <pre> {{ promesa | async }} </pre> </td>
+          </tr>
+
+          <tr>
+            <th scope="row">5</th>
+            <td>JSON</td>
+            <td> {{JSON}} Objeto plano</td>
+            <td> <pre> {{ json | json }} </pre> </td>
+          </tr>
+
+          <tr>
+            <th scope="row">5</th>
+            <td>Personalizado (DOM Seguro)</td>
+            <td> URL Destino {{urlBas}} / {{urlDin}} </td>
+            <td> 
+              <iframe width="560" height="315" [src]="urlBas | domseguro: urlDin" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>  
+            </td>
+          </tr>
+
+          <tr>
+            <th scope="row">5</th>
+            <td>
+              <div>
+                <h4>Pipe Dinamico</h4>
+                <input  [(ngModel)]='texto' required>
+              </div>
+            </td>
+            <td> <button (click)='visible= !visible'  type='button' class="btn btn-block btn-primary"> Mostrar texto </button> </td>
+            <td> 
+              {{ texto | click: visible }}
+            </td>
+          </tr>
         </tbody>
       
     </table>
