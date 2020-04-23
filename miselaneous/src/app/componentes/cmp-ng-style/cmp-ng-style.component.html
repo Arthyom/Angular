@@ -1,0 +1,29 @@
+<div class="container">
+
+    <div class="row">
+        <div class="col-12">
+            <h5>NgStyle - Aumentar/Alejar</h5>
+        </div>
+
+        <div class="col-6">
+
+            <button [ngStyle]="{'height.px':dim, 'width.px': dim}" (click)="dim = dim + 15" class="btn btn-block btn-outline-info"> 
+                <i class="fas fa-plus"></i>
+                Aumentar 
+            </button>
+
+        </div>
+
+        <div class="col-6">
+
+            <button [ngStyle]="{'height.px':dim, 'width.px':  dim}" (click)="dim = dim - 15" class="btn btn-block btn-outline-danger"> 
+                <i class="fas fa-minus"></i>
+
+                Alejar 
+            </button>
+
+        </div>
+
+    </div>
+
+</div>

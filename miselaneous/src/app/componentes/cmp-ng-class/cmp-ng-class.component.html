@@ -1,0 +1,37 @@
+<div class="container ">
+    <div class="row">
+
+        <div class="col-12">
+            <h5>NgClass - Alerts Type</h5>
+        </div>
+
+        <div class="container col-6">
+            <div [ngClass]="'alert alert-'+classType" role="alert">
+                A simple primary alert—check it out!
+            </div>
+        </div>
+
+
+        <div class="col-6">
+            <button (click)="classType = 'info'" class="btn btn-block btn-info">Info</button>
+            <button (click)="classType = 'danger'" class="btn btn-block btn-danger">Danger</button>
+            <button (click)="classType = 'warning'" class="btn btn-block btn-warning">Warning</button>
+            <button (click)="classType = 'success'" class="btn btn-block btn-success">Success</button>
+            <button (click)="classType = 'light'" class="btn btn-block btn-light">Light</button>
+            <button (click)="classType = 'dark'" class="btn btn-block btn-dark">Dark</button>
+        </div>
+
+
+        <div class="col-12">
+            <br><br>
+
+            <h2 class="text text-success" [ngClass]="{'text-danger': options.danger, 'text-info': !options.danger}">
+                Titulo que cambiara de color </h2>
+
+            <button (click)="options.danger = !options.danger" [ngClass]="{'btn btn-block btn-danger': options.danger, 'btn btn-block btn-info': !options.danger}" class="btn btn-block btn-danger">Cambiar Color</button>
+
+        </div>
+
+
+    </div>
+</div>
