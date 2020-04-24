@@ -1,0 +1,49 @@
+<app-loading *ngIf='cargar'></app-loading>
+
+<div class="row m-5" *ngIf=!cargar>
+
+    <div class="col-2 text-left">
+        <img [src]="artist.images | imagen"  class='img-thumbnail img-circle' alt="">
+    </div>
+
+    <div class="col">
+        <h1>{{artist.name}}</h1>
+        <a target="blanck" [href]="artist.external_urls.spotify">Ver En Spotify</a>
+    </div>
+
+    <div class="col-4 text-right">
+
+        <button [routerLink]="[ '/home']" class="btn btn-outline-danger"> Regresar </button>
+
+    </div>
+
+
+</div>
+
+<div class="row">
+    <div class="col">
+        <table class="table text-center">
+            <thead>
+                <tr>
+                    <th>portada</th>
+                    <th>Album</th>
+                    <th>Cancion</th>
+                    <th>Vista Previa</th>
+                </tr>
+            </thead>
+
+            <tbody>
+                <tr *ngFor='let track of topTracks'>
+                    <td> <img [src]="track.album.images | imagen" class="img-thumb img-thumbnail"> </td>
+                    <td> {{track.album.name}}</td>
+                    <td> {{track.name }}</td>
+                    <td> 
+                        <iframe [src]="'https://open.spotify.com/embed/album/' | domSeguro: track.album.id " width="300" height="80" frameborder="0" allowtransparency="true" allow="encrypted-media">
+                        </iframe>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+</div>

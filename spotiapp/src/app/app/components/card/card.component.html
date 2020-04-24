@@ -1,0 +1,10 @@
+<div class="card-columns m-5 puntero" >
+    <div class="card" *ngFor='let item of collection' (click)='verArtista(item)'>
+      <img class="card-img-top"[src]="item.images | imagen" alt="Card image cap">
+      <div class="card-body">
+        <h5 class="card-title">{{item.name}}</h5>
+        <p class="card-text">
+            <span *ngFor='let artist of item.artist' class="badge badge-pill badge-primary">{{item.name}}</span>
+        </p>
+      </div>
+</div>
