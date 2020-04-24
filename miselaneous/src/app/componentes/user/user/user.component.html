@@ -1,0 +1,17 @@
+<div class="row">
+    <div class="col-12">
+        <h2>Usuario</h2>
+        <hr>
+    </div>
+    <div class="col-12 text text-center">
+        <div class="btn-group " role="group" aria-label="">
+            <button [routerLink]="['crear']" routerLinkActive="active" class="btn btn-primary">Nuevo</button>
+            <button [routerLink]="['eliminar']" routerLinkActive="active" class="btn btn-primary">Editar</button>
+            <button [routerLink]="['editar']" routerLinkActive="active" class="btn btn-primary">Eliminar</button>
+        </div>
+    </div>
+
+    <router-outlet></router-outlet>
+
+
+</div>
