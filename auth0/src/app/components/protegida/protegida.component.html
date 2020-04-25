@@ -1,0 +1,20 @@
+<div *ngIf=" auth.userProfile$ | async as profile ">
+    <pre >
+        <code> {{ profile | json }} </code>
+    </pre>
+    
+    <div class="row">
+    
+        <div class="col-8">
+            <ul class="list-group">
+                <li class="list-group-item ">{{profile.name}}</li>
+                <li class="list-group-item">{{profile.nickname}}</li>
+                <li class="list-group-item ">{{profile.email}}</li>
+            </ul>
+        </div>
+        <div class="col-4">
+            <img [src]='profile.picture' class='img-fluid' alt="">
+        </div>
+    
+    </div>
+</div>
