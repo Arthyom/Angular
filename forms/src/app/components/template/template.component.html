@@ -1,0 +1,34 @@
+
+<h1>Template driven Forms</h1>
+<hr>
+
+<div class="container">
+    <form  novalidate='' #formulario = 'ngForm' (ngSubmit)='submit(formulario)'>
+        <div class="form-group has-danger">
+          <label for="nombre">Nombre</label>
+          <input #nombre='ngModel' [(ngModel)]='datos.name' required type="text" name="nombre" id="nombre" class="form-control" placeholder="" aria-describedby="helpId">
+          <small *ngIf="nombre.errors?.required" id="helpId" class="valid-feedback">Se require un valor</small>
+        </div>
+
+        <div class="form-group">
+            <label for="">Apellidos</label>
+            <input #apellidos='ngModel' required [(ngModel)]='datos.lastName' required type="text" name="apellidos" id="" class="form-control" placeholder="" aria-describedby="helpId">
+            <small *ngIf="apellidos.errors?.required" id="helpId" class="text text-muted text-danger ">Se require un valor</small>
+        </div>
+
+          <div class="form-group">
+            <label for="">Correo</label>
+            <input #correo='ngModel' required [(ngModel)]='datos.email' required type="text" name="correo" id="" class="form-control" placeholder="" aria-describedby="helpId">
+            <small *ngIf="correo.errors?.required" id="helpId" class="text text-muted text-danger ">Se require un valor</small>
+        </div>
+
+
+          <button type="submit" class="btn btn-primary">Submit</button>
+    </form>
+    <br>
+
+    <pre class="container-12">
+        <h2>Datos internos</h2>
+        <code>{{datos | json}}</code>
+    </pre>
+</div>
