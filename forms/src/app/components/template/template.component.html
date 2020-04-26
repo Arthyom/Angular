@@ -22,8 +22,33 @@
             <small *ngIf="correo.errors?.required" id="helpId" class="text text-muted text-danger ">Se require un valor</small>
         </div>
 
+        <div class="form-group">
+            <label for="">País</label>
+            <select required [(ngModel)] ='datos.pais' class="custom-select" name="pais" >
+                <option selected>Selecciona uno</option>
+                <option *ngFor='let pais of paises' value="{{pais.codigo}}">{{pais.nombre}}</option>
+            </select>
+        </div>
 
-          <button type="submit" class="btn btn-primary">Submit</button>
+        <div class="form-check" *ngFor='let sexo of sexos'>
+            <label class="form-check-label">
+            <input required [(ngModel)]='datos.sexo' type="radio" class="form-check-input" name="sexo"  value="{{sexo}}" >
+            {{sexo}}
+          </label>
+        </div>
+
+        <div class="form-check">
+          <label class="form-check-label">
+            <input required type="checkbox" class="form-check-input" name="aceptar" 
+            [(ngModel)]='datos.aceptar' checked>
+            Acepto terminos y condiciones
+          </label>
+        </div>
+
+    
+   
+
+          <button  [disabled]="!formulario.valid" type="submit" class="btn btn-primary">Submit</button>
     </form>
     <br>
 

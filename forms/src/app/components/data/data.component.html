@@ -1,1 +1,112 @@
-<p>data works!</p>
+<h1>Data Template Driven</h1>
+<hr>
+
+<div class="container">
+    <form [formGroup] ='formulario' (ngSubmit)='submit()'>
+        <div class="form-group">
+          <label for="">Nombre</label>
+          <input formControlName='nombre' type="text" name="" id="" class="form-control" placeholder="" aria-describedby="helpId">
+          <small *ngIf="!formulario.get('nombre').valid" id="helpId" class="text-muted">
+              Valor obligatorio
+          </small>
+        </div>
+
+        <div class="form-group">
+            <label for="">Apellidos</label>
+            <input required formControlName='apellidos' type="text" name="" id="" class="form-control" placeholder="" aria-describedby="helpId">
+            <small *ngIf="!formulario.get('apellidos').valid" id="helpId" class="text-muted">
+                Valor obligatorio
+            </small>
+        </div>
+
+        <div class="form-group">
+            <label for="">Correo</label>
+            <input formControlName='correo' type="text" name="" id="" class="form-control" placeholder="" aria-describedby="helpId">
+            <small *ngIf="!formulario.get('correo').valid" id="helpId" class="text-muted">
+                Valor obligatorio
+            </small>
+        </div>
+
+        <div class="row">
+            <div class="col-12">
+                <div class="form-group-row" formArrayName = 'pasatiempos'>
+                    <label >Actividades</label>
+                    <input formControlName = '{{i}}' 
+                    *ngFor="let control of formulario.get('pasatiempos').controls; let i = index"  
+                    class="form-control col-10">
+                    <small *ngIf="!formulario.get('pasatiempos').valid" id="helpId" 
+                    class="text-muted">
+                        Valor obligatorio
+                    </small>
+
+                    <button (click)='agregarElementos()' type="button"  
+                    class="col-2 btn btn-primary btn-lg btn-block">Nuevo</button>
+
+
+                </div>
+            </div>
+        </div>
+
+        <br>
+
+        <div class="form-group">
+          <label for="">Contraseña</label>
+          <input formControlName ='p1' type="text" name="" id="" class="form-control">
+          <small *ngIf="formulario.get('p1').invalid" class="text-muted">Valor obligatorio</small>
+        </div>
+
+        <div class="form-group">
+            <label for="">Repetir</label>
+            <input formControlName ='p2' type="text" name="" id="" class="form-control">
+            <small *ngIf="formulario.get('p2').invalid" class="text-muted">No coinciden</small>
+        </div>
+
+        <div class="form-group">
+          <label for="">Usuario</label>
+          <input formControlName='usuario'  class="form-control" >
+          <small *ngIf="!formulario.get('usuario').valid"   class="text-muted">
+                        Valor obligatorio
+          </small>
+        </div>
+        
+
+        <div class="form-group row">
+            <div class="col-12">
+                <button [disabled]='!formulario.valid'  type="submit" class="btn btn-block btn-primary">Submit</button>
+            </div>
+        </div>
+    </form>
+
+    <div class="row">
+
+        <div class="col-3">
+            <h6> valido {{formulario.valid}} </h6>
+            <h6> estado {{formulario.status}}    </h6>
+        </div>
+
+        <div class="col-3">
+            <pre>
+                <h6>Datos del formulario</h6>
+                <code>{{cambioEnForm | json}}</code>
+            </pre>
+        </div>
+
+        <div class="col-3">
+            <pre>
+                <h6>Datos del campo nombre</h6>
+                <code>{{cambioDeNombre}}</code>
+            </pre>        
+        </div>
+
+        <div class="col-3">
+            <pre>
+                <h6>Cambios en el estado</h6>
+                <code>{{cambioEstadoForm}}</code>
+            </pre>        
+        </div>
+
+
+    </div>
+
+
+</div>
