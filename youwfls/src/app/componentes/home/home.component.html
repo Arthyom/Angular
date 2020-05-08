@@ -1,1 +1,41 @@
-<p>home works!</p>
+<div class="card-columns">
+
+    <div class="card" *ngFor="let video of videos">
+        <div class="card-body">
+            <iframe width="100%" height="250" [src]="video.resourceId.videoId | urlPipe" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+            <h6 class="card-title">
+                {{video.title}}
+            </h6>
+            <p class="card-text">{{video.channelTitle}}</p>
+            <button (click)="modal(video)" type="button" class="btn btn-primary btn-block" data-toggle="modal" data-target="#exampleModal">
+                Launch demo modal
+              </button>
+        </div>
+    </div>
+
+</div>
+
+<button type="button" (click)="cargar()" class="btn btn-secondary btn-block">
+    Cargar Más Videos
+</button>
+
+
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true" data-backdrop='static' data-keyboard='false'>
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 *ngIf="videoSeleccionado" class="modal-title" id="exampleModalLabel">{{videoSeleccionado.title}}</h5>
+                <button (click)="modalCerrar()" type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+            </div>
+            <div *ngIf="videoSeleccionado" class="modal-body">
+                <iframe width="100%" height="250" [src]="videoSeleccionado.resourceId.videoId | urlPipe" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            </div>
+            <div class="modal-footer">
+                <button (click)="modalCerrar()" type="button" class="btn btn-danger btn-block" data-dismiss="modal">Cerrar</button>
+            </div>
+        </div>
+    </div>
+</div>
