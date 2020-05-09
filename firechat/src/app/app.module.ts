@@ -8,6 +8,7 @@ import { AngularFireModule } from '@angular/fire';
 import { AngularFireAnalyticsModule } from '@angular/fire/analytics';
 import { AngularFirestoreModule } from '@angular/fire/firestore';
 import { ChatComponent } from './components/chat/chat.component';
+import { FormsModule } from '@angular/forms';
 
 
 @NgModule({
@@ -20,6 +21,7 @@ import { ChatComponent } from './components/chat/chat.component';
     BrowserModule,
     AngularFireAnalyticsModule,
     AngularFirestoreModule,
+    FormsModule,
     AppRoutingModule
   ],
   providers: [],

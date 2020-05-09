@@ -8,16 +8,19 @@ import { ChatsService } from '../../services/chats.service';
 })
 export class ChatComponent implements OnInit {
 
+  mensajes: Mensajes [] = [];
+  nuevoMensaje: Mensajes = {  mensaje : '', nombre : 'wfls'};
   constructor( private fs: ChatsService ) { }
 
   ngOnInit() {
-    this.fs.chats.subscribe( data =>{
-      console.log('dadada', data);
-    });
+   this.fs.getMensajes( ).subscribe( data => this.mensajes = data );
   }
 
   enviarMensaje(){
-    console.log('popopop')
+    this.fs.agregarMensaje(this.nuevoMensaje)
+          .then( data => {
+            this.nuevoMensaje.mensaje = ''
+          });
   }
 
 }
