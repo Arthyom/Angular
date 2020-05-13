@@ -1,0 +1,61 @@
+<h1>Listado de Heroes</h1>
+<hr>
+<button [routerLink]="['/heroe', 'nuevo']" type="button" class="btn btn-primary btn-block ">
+    <i class="fa fa-plus fa-2x" aria-hidden="true"></i>
+</button>
+
+<table
+*ngIf='heroes.length  > 0  && !cargando'
+class="table mt-3 table-inverse table-striped">
+    <thead class="thead-inverse">
+        <tr>
+            <th>#</th>
+            <th>Nombre</th>
+            <th>Poder</th>
+            <th>Vivo</th>
+            <th>Tools</th>
+           
+        </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor='let heroe of heroes; let i = index'>
+              
+                <td>{{i+1}}</td>
+                <td>{{heroe.nombre}}</td>
+                <td>{{heroe.poder}}</td>
+                <td>
+                    <i *ngIf='heroe.vivo' class="fa fa-check" ></i>
+                    <i *ngIf='!heroe.vivo' class="fa fa-close" ></i>
+                </td>
+                <td>
+                    <button 
+                    [routerLink]="['/heroe', heroe.id]"
+                    type="button" class="btn mr-1 btn-primary">
+                        <i  class="fa fa-pen" ></i>
+                    </button>
+
+                    <button 
+                    (click)='eliminar(heroe.id, i)'
+                    type="button" class="btn btn-danger">
+                        <i  class="fa fa-trash" ></i>
+                    </button>
+                </td>
+               
+            </tr>
+           
+        </tbody>
+</table>
+
+<div 
+*ngIf='cargando'
+class="m-5 alert alert-info text-center" role="alert">
+    <h1>Cargando</h1>
+    <i class="fa fa-spinner fa-spin fa-4x" ></i>
+</div>
+
+<div 
+*ngIf='heroes.length  === 0 && !cargando'
+class="m-5 alert alert-warning text-center" role="alert">
+    <h1>No hay datos</h1>
+    <i class="fa fa-exclamation fa-spin fa-4x" ></i>
+</div>

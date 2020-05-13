@@ -1,0 +1,19 @@
+<div class="app-mensajes">
+    
+    <div class="text-left" *ngFor= 'let mensaje of mensajes'>
+        <span class="badge badge-primary"> {{mensaje.nombre}}</span>
+        <p>{{mensaje.mensaje}}</p>
+    </div>
+
+ 
+
+       
+</div>
+
+<hr>
+
+<input type="text" 
+[(ngModel)] = 'nuevoMensaje.mensaje'
+(keyup.enter) = "enviarMensaje()"
+name="nuevoMensaje" class="form-control" 
+placeholder="Escribe un mensaje" >
