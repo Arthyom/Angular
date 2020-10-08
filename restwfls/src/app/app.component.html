@@ -1,0 +1,89 @@
+<h1>Data enviada al login</h1>
+
+<h3>Peticion por post</h3>
+
+<label>Method </label>
+<select name="method" [(ngModel)]="credenciales.method" required>
+  <option value="POST">POST</option>
+  <option value="DELETE">DELETE</option>
+  <option value="PUT">PUT</option>
+  <option value="PATCH">PATCH</option>
+  <option value="GET">GET</option></select
+><br /><br />
+
+<table>
+  <tr>
+    <td>
+      <label>Action</label><br />
+      <label>{{ urlbase }}/ </label > <br>
+        <input
+        type="text"
+        name="action"
+        (keyup)="cambiarAccion()"
+        [(ngModel)]="action"
+      />
+      <br /><br />
+
+      <label>User</label> <br />
+      <input type="text" name="user" [(ngModel)]="credenciales.user" />
+      <br /><br />
+
+      <label>Password</label><br />
+      <input  type="text" name="pass" [(ngModel)]="credenciales.pass" />
+      <br /><br />
+    </td>
+
+    <td></td>
+
+    <td>
+      <label>Additional Data</label><br />
+      <textarea
+        name="add"
+        cols="30"
+        rows="15"
+        (keyup)="unir()"
+        [(ngModel)]="addicional"
+      ></textarea>
+    </td>
+  </tr>
+</table>
+
+<br /><br />
+
+<button (click)="sendPost()">Enviar</button>
+
+<br />
+<br />
+<hr />
+<table border="1">
+  <th>Solicitud</th>
+
+  <th>Respuesta</th>
+
+  <tbody>
+    <tr>
+      <td>
+        <pre>
+
+          {{ credenciales | json }}
+        
+        </pre>
+      </td>
+
+      <td>
+        <pre>
+
+          {{ data | json }}
+        
+        </pre>
+      </td>
+    </tr>
+  </tbody>
+</table>
+
+<hr />
+
+<router-outlet></router-outlet>
+
+
+<router-outlet></router-outlet>
